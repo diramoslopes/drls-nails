@@ -1,5 +1,11 @@
 package drls.nails.domain;
 
-public class Cliente {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "CLIENTES")
+public class Cliente extends AbstractEntity<Long>{
 
 }

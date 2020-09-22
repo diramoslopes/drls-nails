@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="~{layoutNails}">
 <head>
 <meta charset="UTF-8">
 <title>Lista de Atendimento</title>
-<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<div class="alert alert-success" role="alert">
-	  Lista de Atendimento
-	</div>
+	
+	<section class="layout-content" layout:fragment="corpo">
+	
+		<div class="alert alert-success" role="alert">
+		  Lista de Atendimento
+		</div>
+	
+	</section>
 </body>
 </html>

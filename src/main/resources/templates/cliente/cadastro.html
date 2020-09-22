@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorate="~{layoutNails}">
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Cliente</title>
-<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
 <body>
+	<section class="layout-content" layout:fragment="corpo">
 		<div class="alert alert-success" role="alert">
 		  Cadastro de Cliente
 		</div>
@@ -18,5 +19,6 @@
 		  
 		  <button type="submit" class="btn btn-primary">Cadastrar</button>
 		</form>
+	</section>
 </body>
 </html>
