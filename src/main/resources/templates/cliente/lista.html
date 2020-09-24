@@ -9,6 +9,24 @@
 		<div class="alert alert-success" role="alert">
 		  Lista de Cliente
 		</div>
+		
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nome do Cliente</th>
+		    </tr>
+		  </thead>
+		  
+		  <tbody>
+		    <tr th:each="cliente : ${clientes}">
+		      <th scope="row" th:text="${cliente.id}">1</th>
+		      <td th:text="${cliente.nome}">Mark</td>
+		    </tr>
+		  </tbody>
+		  
+		</table>
+		
 	</section>
 </body>
 </html>

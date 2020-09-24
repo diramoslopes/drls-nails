@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/atendimentos")
 public class AtendimentoController {
 	
-@GetMapping("/cadastrar")
-public String cadastrar() {
-	return "atendimento/cadastro";
-}
-
-@GetMapping("/listar")
-public String listar() {
-	return "atendimento/lista";
-}
+	@GetMapping("/cadastrar")
+	public String cadastrar() {
+		return "atendimento/cadastro";
+	}
+	
+	@GetMapping("/listar")
+	public String listar() {
+		return "atendimento/lista";
+	}
 	
 }

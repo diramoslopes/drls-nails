@@ -11,10 +11,11 @@
 		  Cadastro de Cliente
 		</div>
 		
-		<form>
+		<form action="/clientes/salvar" method="post">
+		
 		  <div class="form-group">
 		    <label for="nome">Nome do Cliente</label>
-		    <input type="text" class="form-control" id="nome">
+		    <input type="text" class="form-control" id="nome" name="nome">
 		  </div>
 		  
 		  <button type="submit" class="btn btn-primary">Cadastrar</button>
