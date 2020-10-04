@@ -15,13 +15,24 @@
 		    <tr>
 		      <th scope="col">#</th>
 		      <th scope="col">Nome do Cliente</th>
+		      <th scope="col" class="text-center">Ação</th>
 		    </tr>
 		  </thead>
 		  
 		  <tbody>
 		    <tr th:each="cliente : ${clientes}">
-		      <th scope="row" th:text="${cliente.id}">1</th>
+		      <td scope="row" th:text="${cliente.id}">1</td>
 		      <td th:text="${cliente.nome}">Mark</td>
+		      <td class="text-center">
+		      	 <a class="btn btn-info btn-sm" th:href="@{/clientes/editar/{id} (id= ${cliente.id})}" role="button">
+                     <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
+                 </a>
+                 
+                 <a class="btn btn-info btn-sm" role="button">
+                     <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
+                 </a>
+		      
+		      </td>
 		    </tr>
 		  </tbody>
 		  

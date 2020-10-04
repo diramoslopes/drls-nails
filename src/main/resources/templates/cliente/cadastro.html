@@ -7,18 +7,27 @@
 </head>
 <body>
 	<section class="layout-content" layout:fragment="corpo">
-		<div class="alert alert-success" role="alert">
+	
+	
+		<div class="alert alert-primary" role="alert">
 		  Cadastro de Cliente
 		</div>
 		
-		<form action="/clientes/salvar" method="post">
+		<div th:replace="fragments/alert"></div>
+		
+		<form th:action="${cliente.id == null} ? @{/clientes/salvar} : @{/clientes/editar}"
+			  method="post" th:object="${cliente}">
+		
+		  <div th:replace="fragments/validacao"></div>
 		
 		  <div class="form-group">
 		    <label for="nome">Nome do Cliente</label>
-		    <input type="text" class="form-control" id="nome" name="nome">
+		    <input type="text" class="form-control" id="nome" th:field="*{nome}">
 		  </div>
 		  
-		  <button type="submit" class="btn btn-primary">Cadastrar</button>
+		  <input type="hidden" id="id" th:field="*{id}"/>
+		  
+		  <button type="submit" class="btn btn-primary">Salvar</button>
 		</form>
 	</section>
 </body>

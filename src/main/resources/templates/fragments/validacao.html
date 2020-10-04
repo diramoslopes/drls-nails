@@ -1,0 +1,9 @@
+
+<div th:if="${#fields.hasAnyErrors()}">	
+	  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+	  <div th:each="error : ${#fields.detailedErrors()}">
+	  	<span th:text="${error.message}"></span>
+	  </div>
+	</div>
+</div>	
+

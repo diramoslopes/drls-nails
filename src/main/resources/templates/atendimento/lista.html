@@ -2,7 +2,7 @@
 <html layout:decorate="~{layoutNails}">
 <head>
 <meta charset="UTF-8">
-<title>Lista de Atendimento</title>
+<title>Lista de Atendimentos</title>
 </head>
 <body>
 	
@@ -10,6 +10,32 @@
 	
 		<div class="alert alert-success" role="alert">
 		  Lista de Atendimento
+		</div>
+		
+		<div class="table-responsive">
+			<table class="table">
+			
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Nome do Cliente</th>
+			      <th scope="col">Prestação</th>
+			      <th scope="col">Data</th>
+			      <th scope="col">Valor</th>
+			    </tr>
+			  </thead>
+			  
+			  <tbody>
+			    <tr th:each="atendimento : ${atendimentos}">
+			      <td scope="row" th:text="${atendimento.id}">1</th>
+			      <td th:text="${atendimento.cliente.nome}">Mark</td>
+			      <td th:text="${atendimento.prestacao.descricao}">Mark</td>
+			      <td th:text="${#temporals.format(atendimento.data, 'dd/MM/yyyy')}">Mark</td>
+			      <td th:text="|R$ ${atendimento.valor} |">Mark</td>
+			    </tr>
+			  </tbody>
+			  
+			</table>
 		</div>
 	
 	</section>

@@ -9,43 +9,56 @@
 
 	<section class="layout-content" layout:fragment="corpo">
 	
-		<div class="alert alert-success" role="alert">
+		<div class="alert alert-primary" role="alert">
 			  Cadastro de Atendimento
 		</div>
 		
-		<form>
+		<div th:replace="fragments/alert"></div>
+		
+		<form action="/atendimentos/salvar" method="post" th:object="${atendimento}">
+		
 			  <div class="form-group">
 			    <label for="cliente">Cliente</label>
-			      <select id="cliente" class="form-control">
+			      <select id="cliente" class="form-control" th:field="*{cliente}"
+			      		  th:classappend="${#fields.hasErrors('cliente')} ? 'is-invalid'">
 	               <option value="">Selecione...</option>
-	               <option value="">Alcione</option>
-	               <option value="">Joh Thais</option>
-	               <option value="">Dani Irmã</option>
-		        </select>
+	               <option th:each="cliente : ${clientes}" 
+	               		   th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+		          </select>
+		          <div class="invalid-feedback">
+					<span th:errors="*{cliente}"></span>
+	              </div>
 			  </div>
 			  
 			  <div class="form-group">
 			    <label for="prestacao">Prestação</label>
-			    <select id="prestacao" class="form-control">
+			    <select id="prestacao" class="form-control" th:field="*{prestacao}"
+			    		th:classappend="${#fields.hasErrors('prestacao')} ? 'is-invalid'">
 	               <option value="">Selecione...</option>
-	               <option value="">MÃO Apenas</option>
-	               <option value="">PÉ Apenas</option>
-	               <option value="">MÃO e PÉ</option>
-	               <option value="">SOMBRANCELHA Apenas</option>
-	               <option value="">MÃO, PÉ e SOMBRANCELHA</option>
-	               <option value="">MÃO e SOMBRANCELHA</option>
-	               <option value="">PÉ e SOMBRANCELHA</option>
+	               <option th:each="prestacao : ${prestacoes}" th:value="${prestacao}" th:text="${prestacao.descricao}"></option>
 		        </select>
+		         <div class="invalid-feedback">
+					<span th:errors="*{prestacao}"></span>
+	              </div>
 			  </div>
 			  
 			  <div class="form-group">
 			    <label for="data">Data</label>
-			    <input type="date" class="form-control" id="data">
+			    <input type="date" class="form-control" id="data" th:field="*{data}"
+			   		   th:classappend="${#fields.hasErrors('data')} ? 'is-invalid'">
+			    <div class="invalid-feedback">
+					<span th:errors="*{data}"></span>
+	            </div>
 			  </div>
 			  
 			  <div class="form-group">
 			    <label for="valor">Valor</label>
-			    <input type="text" class="form-control" id="valor">
+			    <input type="text" class="form-control" id="valor" data-mask="#.##0,00" 
+			  		   data-mask-reverse="true" th:field="*{valor}"
+			           th:classappend="${#fields.hasErrors('valor')} ? 'is-invalid'">
+			    <div class="invalid-feedback">
+					<span th:errors="*{valor}"></span>
+           		</div>
 			  </div>
 			  
 			  <button type="submit" class="btn btn-primary">Cadastrar</button>

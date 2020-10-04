@@ -8,8 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.springframework.transaction.annotation.Transactional;
-
 public class AbstractDao<T, PK extends Serializable>  {
 	
 	@SuppressWarnings("unchecked")
@@ -23,7 +21,6 @@ public class AbstractDao<T, PK extends Serializable>  {
 		return entityManager;
 	}
 	
-	@Transactional(readOnly = false) //remover depois
 	public void save(T entity) { 
 
 		entityManager.persist(entity);
@@ -44,7 +41,6 @@ public class AbstractDao<T, PK extends Serializable>  {
 		return entityManager.find(entityClass, id);
 	}
 	
-	@Transactional // remover depois
 	public List<T> findAll() {
 		
 		return entityManager
