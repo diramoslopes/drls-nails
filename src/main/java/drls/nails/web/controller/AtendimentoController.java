@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -48,9 +49,22 @@ public class AtendimentoController {
 			return "atendimento/cadastro";
 		}
 		
-		atendimentoService.salvar(atendimento);
+		
+		if(atendimento.getId() == null) {
+			atendimentoService.salvar(atendimento);
+		} else {
+			atendimentoService.editar(atendimento);
+		}
+		
 		attrs.addFlashAttribute("success", "Atendimento salvo com sucesso.");
 		return "redirect:/atendimentos/cadastrar";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("atendimento", atendimentoService.buscarPorId(id));
+		
+		return "atendimento/cadastro";
 	}
 	
 	@ModelAttribute("prestacoes")

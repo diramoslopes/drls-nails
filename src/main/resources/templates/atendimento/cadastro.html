@@ -15,7 +15,7 @@
 		
 		<div th:replace="fragments/alert"></div>
 		
-		<form action="/atendimentos/salvar" method="post" th:object="${atendimento}">
+			  <form action="/atendimentos/salvar" method="post" th:object="${atendimento}">
 		
 			  <div class="form-group">
 			    <label for="cliente">Cliente</label>
@@ -60,6 +60,8 @@
 					<span th:errors="*{valor}"></span>
            		</div>
 			  </div>
+			  
+			  <input type="hidden" id="id" th:field="*{id}"/>
 			  
 			  <button type="submit" class="btn btn-primary">Cadastrar</button>
 			</form>
