@@ -40,4 +40,12 @@ public class ClienteServiceImpl implements ClienteService {
 		return dao.findAll();
 	}
 
+	@Override
+	public boolean clienteTemAtendimento(Long id) {
+		if(buscarPorId(id).getAtendimentos().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
+
 }

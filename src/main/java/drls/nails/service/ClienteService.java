@@ -16,4 +16,6 @@ public interface ClienteService {
 	
 	List<Cliente> buscarTodos();
 
+	boolean clienteTemAtendimento(Long id);
+
 }

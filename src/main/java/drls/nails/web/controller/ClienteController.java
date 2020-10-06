@@ -64,5 +64,19 @@ public class ClienteController {
 		
 	}
 	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attrs) {
+		
+		
+		if(clienteService.clienteTemAtendimento(id)) {
+			attrs.addFlashAttribute("fail", "Cliente não removido. Possui atendimento(s) vinculado(s).");
+		} else {
+			clienteService.excluir(id);
+			attrs.addFlashAttribute("success", "Cliente removido com sucesso!");
+		}
+		
+		return "redirect:/clientes/listar";
+	}
+	
 	
 }
