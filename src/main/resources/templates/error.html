@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layoutNails}">
+<head>
+<meta charset="UTF-8">
+<title th:text="|Erro ${status}|"></title>
+</head>
+<body class="text-center">
+	
+	<section class="layout-content" layout:fragment="corpo">
+		<div style="margin-top:1em">
+			<h1 class="h3 mb-3 font-weight-normal">
+				<i class="oi oi-warning"></i> 
+				<span th:text="${status}"></span>
+			</h1>
+			
+			<h2 th:text="${error}"></h2>
+			
+			<div>
+				<span th:text="${message}"></span><br/><br/>
+				<a class="btn btn-primary" type="button" href="javascript:history.back()">Voltar a página anterior</a>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

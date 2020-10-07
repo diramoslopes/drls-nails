@@ -20,7 +20,7 @@
 			  <div class="form-group">
 			    <label for="cliente">Cliente</label>
 			      <select id="cliente" class="form-control" th:field="*{cliente}"
-			      		  th:classappend="${#fields.hasErrors('cliente')} ? 'is-invalid'">
+			      		  th:classappend="${#fields.hasErrors('cliente')} ? 'is-invalid'" autofocus="autofocus">
 	               <option value="">Selecione...</option>
 	               <option th:each="cliente : ${clientes}" 
 	               		   th:value="${cliente.id}" th:text="${cliente.nome}"></option>

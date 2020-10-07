@@ -8,9 +8,11 @@
 	
 	<section class="layout-content" layout:fragment="corpo">
 	
-		<div class="alert alert-success" role="alert">
+		<div class="alert alert-primary" role="alert">
 		  Lista de Atendimento
 		</div>
+		
+		<div th:replace="fragments/alert"></div>
 		
 		<div class="table-responsive">
 			<table class="table">
@@ -38,15 +40,19 @@
 	                     <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                 </a>
 	                 
-	                 <a class="btn btn-info btn-sm" role="button">
-	                     <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
-	                 </a>
+	                 <button th:id="${#strings.concat('btn_atendimentos/excluir/', atendimento.id) }" 
+                      	type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalExcluir">
+                          <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
+                 	 </button>
+	                 
 			      </td>
 			    </tr>
 			  </tbody>
 			  
 			</table>
 		</div>
+		
+		<div th:replace="fragments/modal :: modal"></div>
 	
 	</section>
 </body>

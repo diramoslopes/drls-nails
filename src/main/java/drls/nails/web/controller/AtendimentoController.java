@@ -49,11 +49,10 @@ public class AtendimentoController {
 			return "atendimento/cadastro";
 		}
 		
-		
 		if(atendimento.getId() == null) {
 			atendimentoService.salvar(atendimento);
 		} else {
-			atendimentoService.editar(atendimento);
+				atendimentoService.editar(atendimento);
 		}
 		
 		attrs.addFlashAttribute("success", "Atendimento salvo com sucesso.");
@@ -65,6 +64,15 @@ public class AtendimentoController {
 		model.addAttribute("atendimento", atendimentoService.buscarPorId(id));
 		
 		return "atendimento/cadastro";
+	}
+	
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attrs) {
+		
+		atendimentoService.excluir(id);
+		attrs.addFlashAttribute("success", "Atendimento excluido com sucesso!");
+		
+		return "redirect:/atendimentos/listar";
 	}
 	
 	@ModelAttribute("prestacoes")
