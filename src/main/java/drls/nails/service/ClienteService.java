@@ -18,4 +18,6 @@ public interface ClienteService {
 
 	boolean clienteTemAtendimento(Long id);
 
+	List<Cliente> buscarPorNome(String nome);
+
 }

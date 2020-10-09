@@ -1,5 +1,6 @@
 package drls.nails.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import drls.nails.domain.Atendimento;
@@ -14,4 +15,9 @@ public interface AtendimentoDao {
 	Atendimento findById(Long id);
 	
 	List<Atendimento> findAll();
+
+	List<Atendimento> findByClienteId(Long id);
+
+	List<Atendimento> findByData(LocalDate data);
+
 }

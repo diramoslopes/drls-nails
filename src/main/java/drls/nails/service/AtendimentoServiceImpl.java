@@ -1,5 +1,6 @@
 package drls.nails.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,15 @@ public class AtendimentoServiceImpl implements AtendimentoService{
 	@Override @Transactional(readOnly = true)
 	public List<Atendimento> buscarTodos() {
 		return dao.findAll();
+	}
+
+	@Override
+	public List<Atendimento> buscarPorCliente(Long id) {
+		return dao.findByClienteId(id);
+	}
+
+	@Override
+	public List<Atendimento> buscarPorData(LocalDate data) {
+		return dao.findByData(data);
 	}
 }

@@ -8,15 +8,20 @@
 <body>
 	<section class="layout-content" layout:fragment="corpo">
 	
-	
 		<div class="alert alert-primary" role="alert">
 		  Cadastro de Cliente
 		</div>
 		
+		<a class="btn btn-primary btn-md nl-right" th:href="@{/clientes/listar}" role="button" style="margin-bottom:1em;">
+          <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+          <span>Listar Clientes</span>
+	    </a>
+		
 		<div th:replace="fragments/alert"></div>
 		
 		<form th:action="${cliente.id == null} ? @{/clientes/salvar} : @{/clientes/editar}"
-			  method="post" th:object="${cliente}">
+			  method="post" th:object="${cliente}"
+			  class="nl-limpar">
 		
 		  <div th:replace="fragments/validacao"></div>
 		

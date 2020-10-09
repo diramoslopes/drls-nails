@@ -16,7 +16,7 @@
 		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 		    <ul class="navbar-nav">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="/atendimentos/listar">Home <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" th:href="@{/atendimentos/listar}">Home <span class="sr-only">(current)</span></a>
 		      </li>
 		      
 		      <li class="nav-item dropdown">
@@ -24,8 +24,8 @@
 		          Cliente
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		          <a class="dropdown-item" href="/clientes/cadastrar">Cadastrar</a>
-		          <a class="dropdown-item" href="/clientes/listar">Listar</a>
+		          <a class="dropdown-item" th:href="@{/clientes/cadastrar}">Cadastrar</a>
+		          <a class="dropdown-item" th:href="@{/clientes/listar}">Listar</a>
 		        </div>
 		      </li>
 		      
@@ -34,8 +34,8 @@
 		          Atendimento
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		          <a class="dropdown-item" href="/atendimentos/cadastrar">Cadastrar</a>
-		          <a class="dropdown-item" href="/atendimentos/listar">Listar</a>
+		          <a class="dropdown-item" th:href="@{/atendimentos/cadastrar}">Cadastrar</a>
+		          <a class="dropdown-item" th:href="@{/atendimentos/listar}">Listar</a>
 		        </div>
 		      </li>
 		      

@@ -13,9 +13,15 @@
 			  Cadastro de Atendimento
 		</div>
 		
+		<a class="btn btn-primary btn-md nl-right" th:href="@{/atendimentos/listar}" role="button" style="margin-bottom:1em;">
+          <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+          <span>Listar Atendimentos</span>
+	    </a>
+		
 		<div th:replace="fragments/alert"></div>
 		
-			  <form action="/atendimentos/salvar" method="post" th:object="${atendimento}">
+			  <form th:action="@{/atendimentos/salvar}" method="post" th:object="${atendimento}"
+			  	  class="nl-limpar">
 		
 			  <div class="form-group">
 			    <label for="cliente">Cliente</label>

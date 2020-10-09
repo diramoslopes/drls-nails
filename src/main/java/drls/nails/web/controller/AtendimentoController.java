@@ -1,10 +1,13 @@
 package drls.nails.web.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import drls.nails.domain.Atendimento;
@@ -73,6 +77,20 @@ public class AtendimentoController {
 		attrs.addFlashAttribute("success", "Atendimento excluido com sucesso!");
 		
 		return "redirect:/atendimentos/listar";
+	}
+	
+	@GetMapping("/buscar/cliente")
+	public String getPorCliente(@RequestParam("id") Long id, ModelMap model) {
+		model.addAttribute("atendimentos", atendimentoService.buscarPorCliente(id));
+		return "atendimento/lista";
+	}
+	
+	@GetMapping("/buscar/data")
+	public String getPorData(@RequestParam("data") @DateTimeFormat(iso = ISO.DATE) LocalDate data, ModelMap model) {
+		
+		model.addAttribute("atendimentos", atendimentoService.buscarPorData(data));
+		
+		return "atendimento/lista";
 	}
 	
 	@ModelAttribute("prestacoes")

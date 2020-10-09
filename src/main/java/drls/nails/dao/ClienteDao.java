@@ -15,5 +15,7 @@ public interface ClienteDao {
 	Cliente findById(Long id);
 	
 	List<Cliente> findAll();
+
+	List<Cliente> findByNome(String nome);
 	
 }

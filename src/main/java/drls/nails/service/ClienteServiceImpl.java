@@ -48,4 +48,9 @@ public class ClienteServiceImpl implements ClienteService {
 		return true;
 	}
 
+	@Override
+	public List<Cliente> buscarPorNome(String nome) {
+		return dao.findByNome(nome) ;
+	}
+
 }

@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @Table(name = "CLIENTES")
 public class Cliente extends AbstractEntity<Long>{
 	
-	@NotBlank(message = "Informe um nome")
+	@NotBlank(message = "Nome é obrigatório.")
 	@Size(min = 2, max = 60, message = "O nome do cliente deve ter entre {min} e {max} caracteres.")
 	private String nome;
 	
