@@ -62,7 +62,6 @@ public class ClienteController {
 		clienteService.editar(cliente);
 		attrs.addFlashAttribute("success", "Cliente editado com sucesso");
 		return "redirect:/clientes/cadastrar";
-		
 	}
 	
 	@GetMapping("/excluir/{id}")

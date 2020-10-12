@@ -56,7 +56,7 @@ public class AtendimentoController {
 		if(atendimento.getId() == null) {
 			atendimentoService.salvar(atendimento);
 		} else {
-				atendimentoService.editar(atendimento);
+			atendimentoService.editar(atendimento);
 		}
 		
 		attrs.addFlashAttribute("success", "Atendimento salvo com sucesso.");
@@ -102,5 +102,4 @@ public class AtendimentoController {
 	public List<Cliente> listaDeClientes() {
 		return clienteService.buscarTodos();
 	}
-	
 }

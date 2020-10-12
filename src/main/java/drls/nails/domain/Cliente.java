@@ -35,5 +35,4 @@ public class Cliente extends AbstractEntity<Long>{
 	public void setAtendimentos(List<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
 	}
-	
 }

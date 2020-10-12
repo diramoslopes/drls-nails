@@ -23,19 +23,22 @@
 			  <form th:action="@{/atendimentos/salvar}" method="post" th:object="${atendimento}"
 			  	  class="nl-limpar">
 		
-			  <div class="form-group">
+			 <div class="form-group">
 			    <label for="cliente">Cliente</label>
-			      <select id="cliente" class="form-control" th:field="*{cliente}"
-			      		  th:classappend="${#fields.hasErrors('cliente')} ? 'is-invalid'" autofocus="autofocus">
-	               <option value="">Selecione...</option>
-	               <option th:each="cliente : ${clientes}" 
-	               		   th:value="${cliente.id}" th:text="${cliente.nome}"></option>
-		          </select>
-		          <div class="invalid-feedback">
+			    <input type="text" class="form-control" id="cliente" th:field="*{cliente}" 
+			    		th:classappend="${#fields.hasErrors('cliente')} ? 'is-invalid'" 
+			            autofocus="autofocus" list="nomeClientes"  autocomplete="off">
+			    
+			     <div class="invalid-feedback">
 					<span th:errors="*{cliente}"></span>
-	              </div>
-			  </div>
-			  
+	             </div>
+	
+	    		 <datalist id="nomeClientes">
+                     <option th:each="cliente : ${clientes}" th:text="${cliente.nome}"
+               		  th:value="${cliente.id}"></option>
+	                </datalist>
+		      </div>
+			    
 			  <div class="form-group">
 			    <label for="prestacao">Prestação</label>
 			    <select id="prestacao" class="form-control" th:field="*{prestacao}"

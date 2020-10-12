@@ -72,5 +72,4 @@ public class Atendimento extends AbstractEntity<Long> {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	
 }

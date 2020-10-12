@@ -6,6 +6,7 @@ import java.util.List;
 import drls.nails.domain.Atendimento;
 
 public interface AtendimentoDao {
+	
 	void save(Atendimento atendimento);
 	
 	void update(Atendimento atendimento);

@@ -21,6 +21,4 @@ public class StringToClienteConverter implements Converter<String, Cliente> {
 		Long id = Long.valueOf(text);
 		return clienteService.buscarPorId(id);
 	}
-	
-	
 }
