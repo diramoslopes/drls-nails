@@ -3,6 +3,7 @@ package drls.nails.dao;
 import java.util.List;
 
 import drls.nails.domain.Cliente;
+import drls.nails.util.PaginacaoUtil;
 
 public interface ClienteDao {
 		
@@ -18,4 +19,6 @@ public interface ClienteDao {
 
 	List<Cliente> findByNome(String nome);
 	
+	PaginacaoUtil<Cliente> buscaPaginada(int pagina);
+
 }

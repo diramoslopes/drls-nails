@@ -22,21 +22,21 @@ import org.springframework.format.annotation.NumberFormat.Style;
 @Table(name = "ATENDIMENTOS")
 public class Atendimento extends AbstractEntity<Long> {
 	
-	@NotNull(message = "Selecione o cliente relativo ao atendimento")
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "cliente_id_fk")
 	private Cliente cliente;
 	
-	@NotNull(message = "Selecione uma prestação")
+	@NotNull(message = "{prestacao.not.null}")
 	@Enumerated(EnumType.STRING)
 	private Prestacao prestacao;
 	
-	@NotNull(message = "Data é obrigatória")
+	@NotNull
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data", nullable = false, columnDefinition = "DATE")
 	private LocalDate data;
 	
-	@NotNull (message = "Valor é obrigatório")
+	@NotNull
 	@NumberFormat(style = Style.CURRENCY, pattern = "#,##0.00" )
 	@Column(nullable = false, columnDefinition = "DECIMAL(7,2) DEFAULT 0.00")
 	private BigDecimal valor;

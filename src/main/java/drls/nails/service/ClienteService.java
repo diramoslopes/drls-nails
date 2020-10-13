@@ -2,7 +2,9 @@ package drls.nails.service;
 
 import java.util.List;
 
+
 import drls.nails.domain.Cliente;
+import drls.nails.util.PaginacaoUtil;
 
 public interface ClienteService {
 	
@@ -19,5 +21,7 @@ public interface ClienteService {
 	boolean clienteTemAtendimento(Long id);
 
 	List<Cliente> buscarPorNome(String nome);
+	
+	PaginacaoUtil<Cliente> buscaPorPagina(int pagina);
 
 }

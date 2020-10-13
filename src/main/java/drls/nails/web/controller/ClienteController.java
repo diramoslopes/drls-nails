@@ -1,5 +1,7 @@
 package drls.nails.web.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import drls.nails.domain.Cliente;
 import drls.nails.service.ClienteService;
+import drls.nails.util.PaginacaoUtil;
 
 @Controller
 @RequestMapping("/clientes")
@@ -24,8 +27,13 @@ public class ClienteController {
 	private ClienteService clienteService;
 	
 	@GetMapping("/listar")
-	public String listar(ModelMap model) {
-		model.addAttribute("clientes", clienteService.buscarTodos());
+	public String listar(ModelMap model, @RequestParam("page") Optional<Integer> page) {
+		
+		int paginaAtual = page.orElse(1);
+		
+		PaginacaoUtil<Cliente> pageCliente = clienteService.buscaPorPagina(paginaAtual);
+		
+		model.addAttribute("pageCliente", pageCliente);
 		return "cliente/lista";
 	}
 

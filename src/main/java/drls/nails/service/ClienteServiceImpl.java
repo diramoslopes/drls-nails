@@ -2,12 +2,15 @@ package drls.nails.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import drls.nails.dao.ClienteDao;
 import drls.nails.domain.Cliente;
+import drls.nails.util.PaginacaoUtil;
 
 @Service @Transactional(readOnly = false)
 public class ClienteServiceImpl implements ClienteService {
@@ -51,6 +54,11 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public List<Cliente> buscarPorNome(String nome) {
 		return dao.findByNome(nome) ;
+	}
+
+	@Override
+	public PaginacaoUtil<Cliente> buscaPorPagina(int pagina) {
+		return dao.buscaPaginada(pagina);
 	}
 
 }

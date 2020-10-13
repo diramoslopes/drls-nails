@@ -51,7 +51,7 @@
 			  </thead>
 			  
 			  <tbody>
-			    <tr th:each="cliente : ${clientes}">
+			    <tr th:each="cliente : ${pageCliente.registros}">
 			      <td scope="row" th:text="${cliente.id}">1</td>
 			      <td th:text="${cliente.nome}">Mark</td>
 			      <td class="text-center">
@@ -72,14 +72,14 @@
 			
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination justify-content-center">
-			    <li class="page-item disabled">
-			      <a class="page-link" href="#" tabindex="-1">Anterior</a>
+			    <li th:class="${pageCliente.pagina == 1} ? 'page-item disabled' : 'page-item'">
+			      <a class="page-link" th:href="@{/clientes/listar(page=${pageCliente.pagina - 1})}" tabindex="-1">Anterior</a>
 			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
 			    <li class="page-item">
-			      <a class="page-link" href="#">Próxima</a>
+			    	<span class="page-link" th:text="|${pageCliente.pagina} de ${pageCliente.totalDePaginas}|"></span>
+			    </li>
+			    <li th:class="${pageCliente.pagina == pageCliente.totalDePaginas} ? 'page-item disabled' : 'page-item'">
+			      <a class="page-link" th:href="@{/clientes/listar(page=${pageCliente.pagina + 1})}">Próxima</a>
 			    </li>
 			  </ul>
 			</nav>

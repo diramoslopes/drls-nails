@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import drls.nails.domain.Cliente;
+
 public class AbstractDao<T, PK extends Serializable>  {
 	
 	@SuppressWarnings("unchecked")

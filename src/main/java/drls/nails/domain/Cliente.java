@@ -2,6 +2,7 @@ package drls.nails.domain;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -13,8 +14,9 @@ import javax.validation.constraints.Size;
 @Table(name = "CLIENTES")
 public class Cliente extends AbstractEntity<Long>{
 	
-	@NotBlank(message = "Nome é obrigatório.")
-	@Size(min = 2, max = 60, message = "O nome do cliente deve ter entre {min} e {max} caracteres.")
+	@NotBlank
+	@Size(min = 2, max = 60)
+	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
 	
 	@OneToMany(mappedBy = "cliente")
