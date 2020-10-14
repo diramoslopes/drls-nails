@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import drls.nails.domain.Atendimento;
+import drls.nails.util.PaginacaoUtil;
 
 public interface AtendimentoDao {
 	
@@ -20,5 +21,7 @@ public interface AtendimentoDao {
 	List<Atendimento> findByClienteId(Long id);
 
 	List<Atendimento> findByData(LocalDate data);
+	
+	PaginacaoUtil<Atendimento> buscaPaginadaAtendimento(int pagina);
 
 }

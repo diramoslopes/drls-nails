@@ -2,6 +2,7 @@ package drls.nails.web.controller;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -24,6 +25,7 @@ import drls.nails.domain.Cliente;
 import drls.nails.domain.Prestacao;
 import drls.nails.service.AtendimentoService;
 import drls.nails.service.ClienteService;
+import drls.nails.util.PaginacaoUtil;
 
 @Controller
 @RequestMapping("/atendimentos")
@@ -36,8 +38,13 @@ public class AtendimentoController {
 	private ClienteService clienteService;
 	
 	@GetMapping("/listar")
-	public String listar(ModelMap model) {
-		model.addAttribute("atendimentos", atendimentoService.buscarTodos());
+	public String listar(ModelMap model, @RequestParam("page") Optional<Integer> page) {
+		
+		int paginaAtual = page.orElse(1);
+		
+		PaginacaoUtil<Atendimento> pageAtendimento = atendimentoService.buscaPorPaginaAtendimento(paginaAtual);
+		
+		model.addAttribute("pageAtendimento", pageAtendimento);
 		return "atendimento/lista";
 	}
 	

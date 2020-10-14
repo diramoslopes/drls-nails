@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import drls.nails.dao.AtendimentoDao;
 import drls.nails.domain.Atendimento;
+import drls.nails.util.PaginacaoUtil;
 
 @Service @Transactional(readOnly = false)
 public class AtendimentoServiceImpl implements AtendimentoService{
@@ -49,5 +50,10 @@ public class AtendimentoServiceImpl implements AtendimentoService{
 	@Override
 	public List<Atendimento> buscarPorData(LocalDate data) {
 		return dao.findByData(data);
+	}
+
+	@Override
+	public PaginacaoUtil<Atendimento> buscaPorPaginaAtendimento(int pagina) {
+		return dao.buscaPaginadaAtendimento(pagina);
 	}
 }

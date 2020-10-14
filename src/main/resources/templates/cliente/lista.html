@@ -72,6 +72,11 @@
 			
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination justify-content-center">
+			  
+			   <li class="page-item">
+			      <a class="page-link" th:href="@{/clientes/listar(page=${1})}" tabindex="-1">First</a>
+			    </li>
+			    
 			    <li th:class="${pageCliente.pagina == 1} ? 'page-item disabled' : 'page-item'">
 			      <a class="page-link" th:href="@{/clientes/listar(page=${pageCliente.pagina - 1})}" tabindex="-1">Anterior</a>
 			    </li>
@@ -80,6 +85,10 @@
 			    </li>
 			    <li th:class="${pageCliente.pagina == pageCliente.totalDePaginas} ? 'page-item disabled' : 'page-item'">
 			      <a class="page-link" th:href="@{/clientes/listar(page=${pageCliente.pagina + 1})}">Próxima</a>
+			    </li>
+			    
+			     <li class="page-item">
+			      <a class="page-link" th:href="@{/clientes/listar(page=${pageCliente.totalDePaginas})}" tabindex="-1">Last</a>
 			    </li>
 			  </ul>
 			</nav>
